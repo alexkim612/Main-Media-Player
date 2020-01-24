@@ -1,0 +1,36 @@
+{
+  "name": "main-media-player",
+  "version": "1.0.0",
+  "description": "Main media player for SoundClone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "react-dev": "webpack -d --watch",
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoundClone/Main-Media-Player.git"
+  },
+  "author": "Alex Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SoundClone/Main-Media-Player/issues"
+  },
+  "homepage": "https://github.com/SoundClone/Main-Media-Player#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.8.9",
+    "morgan": "^1.9.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.5"
+  }
+}
