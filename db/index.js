@@ -103,6 +103,19 @@ let baby = new Song({
     { id: 10, user: 'belieber', comment: 'OMGOMGOMG I LOVE JBIEBS, MARRY ME HO', timeStamp: '2', avatarpicURL: 'S3' }]
 });
 
+let smackthattwo = new Song({
+  name: 'Smack That Two',
+  artist: 'Akon',
+  posted: '2006-10-06',
+  tag: 'pop',
+  albumName: 'Smack That',
+  albumURL: 'S3',
+  songURL: 'S3',
+  waveformURL: 'S3',
+  comments: [
+    ]
+});
+
 Song.insertMany(
   [dancingqueen, idontwanttomissathing, smackthat, baby], (error, data) => {
     if (error) {
