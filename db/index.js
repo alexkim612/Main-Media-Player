@@ -11,7 +11,7 @@ db.once('open', function() {
 });
 
 //create schema
-const songSchema = new mongoose.Schema({
+const songSchema = mongoose.Schema({
   name: String,
   artist: String,
   posted: { type: Date, default: Date.now },
@@ -22,7 +22,6 @@ const songSchema = new mongoose.Schema({
   waveformURL: String,
   comments: [{ id: Number, user: String, comment: String, timeStamp: String, avatarpicURL: String }]
 });
-
 
 const Song = mongoose.model('Song', songSchema);
 
@@ -103,3 +102,13 @@ let baby = new Song({
     { id: 9, user: 'iloveit', comment: 'i got pinkeye from listening to this', timeStamp: '89', avatarpicURL: 'S3' },
     { id: 10, user: 'belieber', comment: 'OMGOMGOMG I LOVE JBIEBS, MARRY ME HO', timeStamp: '2', avatarpicURL: 'S3' }]
 });
+
+Song.insertMany(
+  [dancingqueen, idontwanttomissathing, smackthat, baby], (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('data seeded');
+    }
+  }
+);
