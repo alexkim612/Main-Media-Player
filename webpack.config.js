@@ -9,13 +9,14 @@ module.exports = {
     path: DIST_DIR
   },
   module : {
-    loaders : [
+    rules : [
       {
         test : /\.jsx?/,
         include : SRC_DIR,
+        exclude : /(node_modules|.gitignore)/,
         loader : 'babel-loader',      
         query: {
-          presets: ['react', 'es2015']
+          presets: ['react']
         }
       }
     ]
