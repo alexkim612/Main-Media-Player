@@ -13,10 +13,9 @@ module.exports = {
       {
         test : /\.jsx?/,
         include : SRC_DIR,
-        exclude : /(node_modules|.gitignore)/,
-        loader : 'babel-loader',      
+        loader : 'babel-loader',
         query: {
-          presets: ['react']
+          presets: ['@babel/react']
         }
       }
     ]
