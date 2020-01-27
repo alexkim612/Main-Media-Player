@@ -57,7 +57,7 @@ const MainPlayerWrapper = styled.div`
 const PlayPauseSongHeader = styled.div`
   width: 40%;
   height: 60px;
-  background-color: orange;
+  border: orange solid 1px;
   float: left;
   display: inline-block;
 `;
@@ -65,7 +65,7 @@ const PlayPauseSongHeader = styled.div`
 const DateTag = styled.div`
   width: 10%;
   height: 60px;
-  background-color: blue;
+  border: blue solid 1px;
   float: left;
   display: inline-block;
   margin-left: 230px;
@@ -74,7 +74,7 @@ const DateTag = styled.div`
 const Album = styled.div`
   width: 29%;
   height: 100%;
-  background-color: yellow;
+  border: yellow solid 1px;
   float: right;
   display: inline-block;
 `;
@@ -82,7 +82,7 @@ const Album = styled.div`
 const WaveFormComments = styled.div`
   width: 69%;
   height: 30%;
-  background-color: green;
+  border: green solid 1px;
   display: inline-block;
   position: relative;
   top: 50%;
