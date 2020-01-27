@@ -11,4 +11,4 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 //notification on open server
-app.listen(port, () => console.log(` listening on port ${port}!`))
+app.listen(port, () => console.log(`listening on port ${port}!`));
