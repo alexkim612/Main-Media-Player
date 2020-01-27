@@ -8,6 +8,7 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
+  plugins: ["babel-plugin-styled-components"],
   module : {
     rules : [
       {
