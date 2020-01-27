@@ -1,3 +1,7 @@
+//fake data generator
+var faker = require('faker');
+
+//mongodb
 var mongoose = require('mongoose');
 
 //open database @mediaplayer
@@ -16,6 +20,7 @@ const songSchema = mongoose.Schema({
   artist: String,
   posted: { type: Date, default: Date.now },
   tag: String,
+  runtime: String,
   albumName: String,
   albumURL: String,
   songURL: String,
@@ -24,6 +29,49 @@ const songSchema = mongoose.Schema({
 });
 
 const Song = mongoose.model('Song', songSchema);
+
+/*
+-----------Fake data creation-----------
+*/
+
+//store fake data
+const fakedata = [];
+
+//create fake data
+for (let i = 0; i < 100; i++) {
+  const randomizer = (max) => Math.floor(Math.random() * Math.floor(max));
+
+  const runtime = faker.random.number({min: 100, max: 300});
+  
+  //create comments
+  var comments = [];
+  for (let j = 0; j < randomizer(20); j++) {
+    newComment = {
+      id: j,
+      user: faker.internet.userName(),
+      comment: faker.random.words(randomizer(25)),
+      timeStamp: faker.random.number({min: 2, max: runtime}),
+      avatarpicURL: faker.random.image()
+    }
+    comments.push(newComment);
+  }
+
+  //create new song with comments
+  let newSong = {
+    name: faker.random.words(randomizer(8)),
+    artist: faker.fake("{{name.firstName}}, {{name.lastName}}"),
+    posted: faker.date.past(),
+    tag: faker.random.words(1),
+    runtime: runtime,
+    albumName: faker.random.words(randomizer(3)),
+    albumURL: faker.image.imageUrl(),
+    songURL: faker.internet.url(),
+    // const waveformURL: waveformpicture
+    comments: comments
+  }
+  fakedata.push(newSong);
+}
+
 
 let dancingqueen = new Song({
   name: 'Dancing Queen',
@@ -117,7 +165,7 @@ let smackthattwo = new Song({
 });
 
 Song.insertMany(
-  [dancingqueen, idontwanttomissathing, smackthat, baby], (error, data) => {
+  fakedata, (error, data) => {
     if (error) {
       console.log(error);
     } else {
