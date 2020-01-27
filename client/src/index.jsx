@@ -80,7 +80,12 @@ const Album = styled.div`
 `;
 
 const WaveFormComments = styled.div`
-
+  width: 69%;
+  height: 30%;
+  background-color: green;
+  display: inline-block;
+  position: relative;
+  top: 50%;
 `;
 
 
