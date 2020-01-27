@@ -74,7 +74,7 @@ const DateTag = styled.div`
 const Album = styled.div`
   width: 29%;
   height: 100%;
-  border: yellow solid 1px;
+  border: red solid 1px;
   float: right;
   display: inline-block;
 `;
