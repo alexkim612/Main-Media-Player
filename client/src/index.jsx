@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import PlayButtonApp from './components/playbutton/PlayButtonApp.jsx';
 
+
+import DateTagApp from './components/datetag/DateTagApp.jsx'
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -38,8 +41,7 @@ class App extends React.Component {
         </PlayPauseSongHeader>
 
         <DateTag>
-          {/* Date */}
-          {/* Tag */}
+          <DateTagApp />
         </DateTag>
 
         <Album>
