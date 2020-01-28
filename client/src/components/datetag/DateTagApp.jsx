@@ -2,14 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 
 function DateTagApp(props) {
-  const remainingDate = new Date(props.song.posted);
-  console.log(remainingDate);
+  const dateDiff = () => {
+    const postedDate = new Date(props.song.posted);
+    const currentDate = new Date();
+    const diffTime = Math.abs(currentDate - postedDate);
+    //current date - posted date = remaining date
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  //current date - posted date = remaining date
-  //if remaining date < 1 month: return #days
-  // if remaining date > 1 month and < 1 year: return #months
-  // if remaining date > 1 year: return #years
+    console.log(`${Math.floor(diffDays/30)} months ago`);
 
+    //if remaining date < 30 days: return #days
+    if (diffDays <= 30) {
+      return `${Math.floor(diffDays)} days ago`;
+      // if remaining date > 30 days and < 365 days: return #months
+    } else if (diffDays > 30 && diffDays <= 365) {
+      return `${Math.floor(diffDays/30)} months ago`;
+      // if remaining date > 365 days: return #years
+    } else {
+      return `${Math.floor(diffDays/365)} years ago`;
+
+    }
+
+  }
+
+  dateDiff()
 
   return (
     <Container>
