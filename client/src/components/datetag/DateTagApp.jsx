@@ -4,7 +4,7 @@ import styled from 'styled-components';
 function DateTagApp(props) {
   return (
     <Container>
-      <Date>9 months</Date>
+      <Date>9 months ago</Date>
       <Tag># whoa</Tag>
     </Container>
   );
@@ -26,7 +26,7 @@ const Date = styled.div`
 const Tag = styled.div`
   background: lightgrey;
   color: white;
-  padding: 3px;
+  padding: 2px 8px;
   display: inline-block;
   float: right;
   border-radius: 25px;
