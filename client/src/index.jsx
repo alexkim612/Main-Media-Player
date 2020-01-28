@@ -12,22 +12,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      song: [{
-        name: 'Dancing Queen',
-        artist: 'ABBA',
-        posted: '1999-02-15',
-        tag: 'pop',
-        albumName: 'ABBA Gold',
-        albumURL: 'S3',
-        songURL: 'S3',
-        waveformURL: 'S3',
-        comments: [
-          { id: 0, user: 'Abba lover', comment: 'I love ABBA!!', timeStamp: '90', avatarpicURL: 'S3' },
-          { id: 1, user: 'Queen', comment: 'I feel like a queen', timeStamp: '45', avatarpicURL: 'S3' },
-          { id: 2, user: 'Dancer', comment: 'Im dancing!', timeStamp: '23', avatarpicURL: 'S3' },
-          { id: 3, user: 'King', comment: 'should be dancingking', timeStamp: '14', avatarpicURL: 'S3' },
-          { id: 4, user: 'Singer', comment: 'should be singingqueen', timeStamp: '118', avatarpicURL: 'S3' }]
-      }]
+      song: []
     }
   }
 
@@ -53,7 +38,7 @@ class App extends React.Component {
 
         <PlayPauseSongHeader>
           <PlayButtonApp />
-          <SongArtistApp song={this.state.song[0]}/>
+          {!this.state.song.length ? <div /> : <SongArtistApp song={this.state.song[0]}/>}
         </PlayPauseSongHeader>
 
         <DateTag>
