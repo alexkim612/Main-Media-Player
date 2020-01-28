@@ -42,7 +42,7 @@ class App extends React.Component {
         </PlayPauseSongHeader>
 
         <DateTag>
-          <DateTagApp />
+          {!this.state.song.length ? <div /> : <DateTagApp song={this.state.song[0]}/>}
         </DateTag>
 
         <Album>

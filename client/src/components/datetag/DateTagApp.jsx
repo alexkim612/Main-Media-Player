@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 function DateTagApp(props) {
+  const remainingDate = new Date(props.song.posted);
+  console.log(remainingDate);
   return (
     <Container>
-      <Date>9 months ago</Date>
-      <Tag># whoa</Tag>
+      {/* <Dated>{remainingDate.setDate}</Date> */}
+      <Tag>#{props.song.tag}</Tag>
     </Container>
   );
 }
@@ -16,7 +18,7 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const Date = styled.div`
+const Dated = styled.div`
   height: 50%;
   color: white;
   display: inline-block;
