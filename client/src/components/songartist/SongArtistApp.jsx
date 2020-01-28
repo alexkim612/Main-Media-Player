@@ -33,12 +33,4 @@ const SongTitle = styled.div`
   font-size: larger;
 `;
 
-const PlayPauseSongHeader = styled.div`
-  width: 40%;
-  height: 60px;
-  border: orange solid 1px;
-  float: left;
-  display: inline-block;
-`;
-
 export default SongArtistApp;
