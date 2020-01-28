@@ -71,40 +71,32 @@ const MainPlayerWrapper = styled.div`
   padding-bottom: 30px;
   padding-left: 30px;
   padding-right: 20px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 25%;
+  grid-gap: 15px;
 `;
 
 const PlayPauseSongHeader = styled.div`
-  width: 40%;
-  height: 60px;
   border: orange solid 1px;
-  float: left;
-  display: inline-block;
+  grid-column: span 3 / auto;
 `;
 
 const DateTag = styled.div`
-  width: 10%;
-  height: 60px;
   border: blue solid 1px;
-  float: left;
-  display: inline-block;
   margin-left: 230px;
 `;
 
 const Album = styled.div`
-  width: 29%;
-  height: 100%;
   border: red solid 1px;
-  float: right;
-  display: inline-block;
+  grid-column: span 3 / auto;
+  grid-row: span 3 / auto;
 `;
 
 const WaveFormComments = styled.div`
-  width: 69%;
-  height: 30%;
   border: green solid 1px;
-  display: inline-block;
-  position: relative;
-  top: 50%;
+  grid-column: span 4 / auto;
+  grid-row-start: 3;
 `;
 
 
