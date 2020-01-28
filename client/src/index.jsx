@@ -72,7 +72,7 @@ const MainPlayerWrapper = styled.div`
   padding-left: 30px;
   padding-right: 20px;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(4, 1fr) repeat(3, 10%);
   grid-template-rows: 20% auto 35%;
   grid-gap: 15px;
 `;
@@ -85,7 +85,9 @@ const PlayPauseSongHeader = styled.div`
 
 const DateTag = styled.div`
   border: blue solid 1px;
-  margin-left: 230px;
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const Album = styled.div`

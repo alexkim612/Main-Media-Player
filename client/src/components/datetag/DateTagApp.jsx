@@ -34,23 +34,24 @@ function DateTagApp(props) {
 //CSS Styled-components
 
 const Container = styled.div`
-  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-evenly;
 `;
 
 const Dated = styled.div`
-  height: 50%;
   color: white;
   display: inline-block;
-  float: right
+  text-align: right;
 `;
 
 const Tag = styled.div`
   background: lightgrey;
   color: white;
   padding: 2px 8px;
-  display: inline-block;
-  float: right;
   border-radius: 25px;
+  text-align: right;
 `;
 
 export default DateTagApp;

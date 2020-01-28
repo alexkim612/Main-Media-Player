@@ -28,8 +28,7 @@ const Artist = styled.div`
 `;
 
 const SongTitle = styled.div`
-  display: flex;
-  flex-basis: auto;
+  display: inline-block;
   background-color: black;
   color: white;
   padding: 5px;
