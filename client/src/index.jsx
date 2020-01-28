@@ -73,13 +73,14 @@ const MainPlayerWrapper = styled.div`
   padding-right: 20px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 25%;
+  grid-template-rows: 20% auto 35%;
   grid-gap: 15px;
 `;
 
 const PlayPauseSongHeader = styled.div`
   border: orange solid 1px;
   grid-column: span 3 / auto;
+  display: flex;
 `;
 
 const DateTag = styled.div`

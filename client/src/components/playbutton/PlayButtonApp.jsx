@@ -11,8 +11,10 @@ function PlayButtonApp(props) {
 
 //CSS Styled-components
 const PlayPauseButton = styled.button`
-height: 60px;
-width: 60px;
+display: flex;
+align-self: center;
+height: 65px;
+width: 65px;
 background-color: #ff5722;
 border-radius: 50%;
 border: 1px solid ff5722;
