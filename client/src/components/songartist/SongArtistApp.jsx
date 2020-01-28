@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 function SongArtistApp(props) {
-  console.log(props);
   return (
     <Container>
       <Artist>{props.song.artist}</Artist>
