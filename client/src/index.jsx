@@ -2,13 +2,29 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import PlayButtonApp from './components/playbutton/PlayButtonApp.jsx';
+import SongArtistApp from './components/songartist/SongArtistApp.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      song: {}
+      song: [{
+        name: 'Dancing Queen',
+        artist: 'ABBA',
+        posted: '1999-02-15',
+        tag: 'pop',
+        albumName: 'ABBA Gold',
+        albumURL: 'S3',
+        songURL: 'S3',
+        waveformURL: 'S3',
+        comments: [
+          { id: 0, user: 'Abba lover', comment: 'I love ABBA!!', timeStamp: '90', avatarpicURL: 'S3' },
+          { id: 1, user: 'Queen', comment: 'I feel like a queen', timeStamp: '45', avatarpicURL: 'S3' },
+          { id: 2, user: 'Dancer', comment: 'Im dancing!', timeStamp: '23', avatarpicURL: 'S3' },
+          { id: 3, user: 'King', comment: 'should be dancingking', timeStamp: '14', avatarpicURL: 'S3' },
+          { id: 4, user: 'Singer', comment: 'should be singingqueen', timeStamp: '118', avatarpicURL: 'S3' }]
+      }]
     }
   }
 
@@ -33,7 +49,7 @@ class App extends React.Component {
 
         <PlayPauseSongHeader>
           {/* play/pause button */}
-          {/* song title and artist */}
+          <SongArtistApp song={this.state.song[0]}/>
         </PlayPauseSongHeader>
 
         <DateTag>
