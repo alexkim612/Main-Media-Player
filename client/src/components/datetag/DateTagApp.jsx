@@ -9,27 +9,23 @@ function DateTagApp(props) {
     //current date - posted date = remaining date
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-    console.log(`${Math.floor(diffDays/30)} months ago`);
-
     //if remaining date < 30 days: return #days
     if (diffDays <= 30) {
-      return `${Math.floor(diffDays)} days ago`;
+      return diffDays === 1 ? `${Math.floor(diffDays)} day ago` : `${Math.floor(diffDays)} days ago`;
       // if remaining date > 30 days and < 365 days: return #months
     } else if (diffDays > 30 && diffDays <= 365) {
-      return `${Math.floor(diffDays/30)} months ago`;
+      let months = Math.floor(diffDays/30);
+      return months === 1 ? `${months} month ago` : `${months} months ago`;
       // if remaining date > 365 days: return #years
     } else {
-      return `${Math.floor(diffDays/365)} years ago`;
-
+      let years = Math.floor(diffDays/365);
+      return years === 1 ? `${years} year ago` : `${years} years ago`;
     }
-
   }
-
-  dateDiff()
 
   return (
     <Container>
-      {/* <Dated>{remainingDate.setDate}</Date> */}
+      <Dated>{dateDiff()}</Dated>
       <Tag>#{props.song.tag}</Tag>
     </Container>
   );
