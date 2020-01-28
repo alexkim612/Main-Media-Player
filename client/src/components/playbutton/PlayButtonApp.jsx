@@ -1,24 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 
-class PlayButtonApp extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-
-    }
-
-  }
-
-
-
-  render() {
-    return (
-      <div>
-      </div>
-    );
-  }
+function PlayButtonApp(props) {
+  return (
+    <PlayPauseButton>
+      play
+    </PlayPauseButton>
+  );
 }
 
+//CSS Styled-components
+const PlayPauseButton = styled.button`
+height: 60px;
+width: 60px;
+background-color: #ff5722;
+border-radius: 50%;
+border: 1px solid ff5722;
+
+&:hover {
+  background: #f44336;
+}
+`;
+
 export default PlayButtonApp;
+
