@@ -7,7 +7,7 @@
     "test": "jest",
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
-    "dummymongodata": "node ./db/index.js"
+    "dummymongodata": "node ./db/seed.js"
   },
   "repository": {
     "type": "git",

@@ -8,8 +8,23 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-
+      song: {}
     }
+  }
+
+  componentDidMount() {
+    fetch('/song')
+      .then(response => {
+        return response.json();
+      })
+      .then(songs => {
+        this.setState({
+          song: songs
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
