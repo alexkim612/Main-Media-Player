@@ -4,31 +4,34 @@ import styled from 'styled-components';
 function SongArtistApp(props) {
   return (
     <Container>
-      <Artist>{props.song.artist}</Artist>
+      <div>
+        <Artist>{props.song.artist}</Artist>
+      </div>
       <SongTitle>{props.song.name}</SongTitle>
     </Container>
   );
 }
 
 const Container = styled.div`
-  height: 100%
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 4px;
 `;
 
 const Artist = styled.div`
-  height: 25%;
-  background: black;
+  display: inline-block;
+  background-color: black;
   color: lightgrey;
   padding: 4px;
-  display: inline-table;
-  margin-bottom: 5px;
 `;
 
 const SongTitle = styled.div`
-  height: 75%;
-  background: black;
+  display: inline-block;
+  background-color: black;
   color: white;
   padding: 5px;
-  display: table-cell;
   font-size: larger;
 `;
 
