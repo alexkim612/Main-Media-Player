@@ -4,6 +4,13 @@ import styled from 'styled-components';
 function DateTagApp(props) {
   const remainingDate = new Date(props.song.posted);
   console.log(remainingDate);
+
+  //current date - posted date = remaining date
+  //if remaining date < 1 month: return #days
+  // if remaining date > 1 month and < 1 year: return #months
+  // if remaining date > 1 year: return #years
+
+
   return (
     <Container>
       {/* <Dated>{remainingDate.setDate}</Date> */}
