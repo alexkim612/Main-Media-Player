@@ -12,6 +12,7 @@ class App extends React.Component {
     }
   }
 
+  //grab songs from db
   componentDidMount() {
     fetch('/song')
       .then(response => {
@@ -32,7 +33,7 @@ class App extends React.Component {
       <MainPlayerWrapper >
 
         <PlayPauseSongHeader>
-          {/* play/pause button */}
+          <PlayButtonApp />
           {/* song title and artist */}
         </PlayPauseSongHeader>
 
