@@ -2,17 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 function PlayButtonApp(props) {
+  let playOrPause = props.isPaused ? 'pause' : 'play_arrow'
   return (
-    <PlayPauseButton>
-      play
+    <PlayPauseButton onClick={props.handlePlayPause}>
+      <i className="material-icons" style={{ fontSize: 45, color: 'white'}}>{playOrPause}</i>
     </PlayPauseButton>
   );
 }
 
 //CSS Styled-components
 const PlayPauseButton = styled.button`
-display: flex;
-align-self: center;
 height: 65px;
 width: 65px;
 background-color: #ff5722;
