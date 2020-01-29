@@ -69,8 +69,6 @@ class App extends React.Component {
 }
 
 //CSS Styled-components
-//max dimensions : 1240w x 380h
-//min dimensions : 960w x 380h
 const MainPlayerWrapper = styled.div`
   max-width: 1240px;
   min-width: 960px;
