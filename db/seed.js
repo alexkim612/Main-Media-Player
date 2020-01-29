@@ -37,7 +37,7 @@ for (let i = 0; i < 100; i++) {
     tag: faker.random.words(1),
     runtime: runtime,
     albumName: faker.random.words(randomizer(3)),
-    albumURL: faker.image.imageUrl(),
+    albumURL: 'https://www.billboard.com/files/styles/900_wide/public/media/Joy-Division-Unknown-Pleasures-album-covers-billboard-1000x1000.jpg',
     songURL: faker.internet.url(),
     // const waveformURL: waveformpicture
     comments: comments
