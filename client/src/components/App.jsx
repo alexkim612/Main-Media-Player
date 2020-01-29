@@ -6,6 +6,8 @@ import SongArtistApp from './songartist/SongArtistApp.jsx';
 import DateTagApp from './datetag/DateTagApp.jsx';
 import AlbumPicture from './albumpicture/AlbumPictureApp.jsx'
 
+import WaveFormapp from './waveform/WaveFormApp.jsx';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
