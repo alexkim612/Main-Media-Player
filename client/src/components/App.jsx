@@ -69,9 +69,12 @@ class App extends React.Component {
 }
 
 //CSS Styled-components
+//max dimensions : 1240w x 380h
+//min dimensions : 960w x 380h
 const MainPlayerWrapper = styled.div`
-  width: 85%;
-  height: 350px;
+  max-width: 1240px;
+  min-width: 960px;
+  height: 380px;
   margin: auto;
   margin-top: 50px;
   background: linear-gradient(to right, #d3d3d3 -3%, #a9a9a9 105%);
