@@ -5,6 +5,7 @@ import App from '../client/src/components/App.jsx';
 
 
 describe('Unit Tests', () => {
+  //mock a request using jest-fetch-mock
   jest.mock('jest-fetch-mock', () => {
     const songs = [
       {
