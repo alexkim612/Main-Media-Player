@@ -29,29 +29,21 @@ class AlbumPictureApp extends React.Component {
 
   render() {
     return (
-      <CoverArt src={`${this.props.song.albumURL}`} onClick={this.openModal}>
-        {this.state.isModalOpen ? <Modal closeModal={this.closeModal} isModalOpen={this.state.isModalOpen}/> : null}
-      </CoverArt>
+      <div onClick={this.openModal}>
+        <CoverArt src={this.props.song.albumURL}/>
+
+        {this.state.isModalOpen ? 
+        <Modal closeModal={this.closeModal} isModalOpen={this.state.isModalOpen}> 
+          Hello from modal
+        </Modal> 
+        : null}
+        
+      </div>
     );
   }
 }
 
 //CSS Styled-components
-
-{/* <div>
-  <button onClick={this.toggleState}>Open Modal</button>
-  <div>Modal is: {this.state.isModalOpen ? "Open" : "Closed"}</div>
-  {this.state.isModalOpen && (
-    <Modal
-      id="modal"
-      isOpen={this.state.isModalOpen}
-      onClose={this.toggleState}
-      class="my-class"
-    >
-      <div className="box-body">I am the content of the modal</div>
-    </Modal>
-  )}
-</div> */}
 
 const CoverArt = styled.img`
   width: 100%;
