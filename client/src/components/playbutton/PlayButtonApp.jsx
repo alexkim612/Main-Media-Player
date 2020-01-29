@@ -3,16 +3,15 @@ import styled from 'styled-components';
 
 function PlayButtonApp(props) {
   return (
-    <PlayPauseButton>
-      play
+    <PlayPauseButton onClick={props.handlePlayPause}>
+      <i className="material-icons" style={{ fontSize: 40, color: 'white'}}>play_arrow</i>
+      <i className="material-icons" style={{ fontSize: 40, color: 'white'}}>pause</i>
     </PlayPauseButton>
   );
 }
 
 //CSS Styled-components
 const PlayPauseButton = styled.button`
-display: flex;
-align-self: center;
 height: 65px;
 width: 65px;
 background-color: #ff5722;

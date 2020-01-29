@@ -10,8 +10,18 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      song: []
+      song: [],
+      isPaused: true
     }
+
+    this.handlePlayPause = this.handlePlayPause.bind(this);
+  }
+
+  //handle isPaused
+  handlePlayPause () {
+    this.setState({
+      isPaused: this.state.isPaused ? false : true
+    });
   }
 
   // grab songs from db
@@ -35,7 +45,7 @@ class App extends React.Component {
       <MainPlayerWrapper >
 
         <PlayPauseSongHeader>
-          <PlayButtonApp />
+          <PlayButtonApp isPaused={this.state.isPaused} handlePlayPause={this.handlePlayPause}/>
           {!this.state.song.length ? <div /> : <SongArtistApp song={this.state.song[0]}/>}
         </PlayPauseSongHeader>
 
