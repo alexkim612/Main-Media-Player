@@ -5,7 +5,7 @@ function PlayButtonApp(props) {
   let playOrPause = props.isPaused ? 'pause' : 'play_arrow'
   return (
     <PlayPauseButton onClick={props.handlePlayPause}>
-      <i className="material-icons" style={{ fontSize: 45, color: 'white'}}>{playOrPause}</i>
+      <i className="material-icons" style={{ fontSize: 45, color: 'white', }}>{playOrPause}</i>
     </PlayPauseButton>
   );
 }
