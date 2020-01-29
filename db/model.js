@@ -8,7 +8,6 @@ module.exports = {
           console.log('Could not find data in DB')
           callback(err);
         } else {
-          console.log(data);
           callback(null, data);
         }
       });

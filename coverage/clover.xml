@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1580257930485" clover="3.2.0">
+  <project timestamp="1580257930485" name="All files">
+    <metrics statements="35" coveredstatements="16" conditionals="16" coveredconditionals="2" methods="10" coveredmethods="3" elements="61" coveredelements="21" complexity="0" loc="35" ncloc="35" packages="8" files="8" classes="8"/>
+    <package name="src">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.jsx" path="/Users/alexanderkim/Desktop/HackReactor/Main-Media-Player/client/src/index.jsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="12" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="3"/>
+      <file name="App.jsx" path="/Users/alexanderkim/Desktop/HackReactor/Main-Media-Player/client/src/components/App.jsx">
+        <metrics statements="12" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="3"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="91" count="1" type="stmt"/>
+        <line num="97" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.albumpicture">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="AlbumPictureApp.jsx" path="/Users/alexanderkim/Desktop/HackReactor/Main-Media-Player/client/src/components/albumpicture/AlbumPictureApp.jsx">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.components.comments">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="CommentsApp.jsx" path="/Users/alexanderkim/Desktop/HackReactor/Main-Media-Player/client/src/components/comments/CommentsApp.jsx">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.components.datetag">
+      <metrics statements="16" coveredstatements="3" conditionals="12" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="DateTagApp.jsx" path="/Users/alexanderkim/Desktop/HackReactor/Main-Media-Player/client/src/components/datetag/DateTagApp.jsx">
+        <metrics statements="16" coveredstatements="3" conditionals="12" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.playbutton">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="PlayButtonApp.jsx" path="/Users/alexanderkim/Desktop/HackReactor/Main-Media-Player/client/src/components/playbutton/PlayButtonApp.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.songartist">
+      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="SongArtistApp.jsx" path="/Users/alexanderkim/Desktop/HackReactor/Main-Media-Player/client/src/components/songartist/SongArtistApp.jsx">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.waveform">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="WaveFormApp.jsx" path="/Users/alexanderkim/Desktop/HackReactor/Main-Media-Player/client/src/components/waveform/WaveFormApp.jsx">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+  </project>
+</coverage>
