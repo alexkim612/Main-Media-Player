@@ -20,9 +20,13 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpg)$/,
-        loader: 'url?limit=25000'
-      }
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ]
   },
   resolve: {
