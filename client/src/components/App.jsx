@@ -17,17 +17,17 @@ class App extends React.Component {
     }
 
     this.handlePlayPause = this.handlePlayPause.bind(this);
+    this.fetchData =this.fetchData.bind(this);
   }
 
   //handle isPaused
-  handlePlayPause () {
+  handlePlayPause() {
     this.setState({
       isPaused: this.state.isPaused ? false : true
     });
   }
 
-  // grab songs from db
-  componentDidMount() {
+  fetchData() {
     fetch('http://localhost:9000/song')
       .then(response => {
         return response.json();
@@ -42,27 +42,34 @@ class App extends React.Component {
       });
   }
 
+  // grab songs from db
+  componentDidMount() {
+    this.fetchData();
+  }
+
   render() {
     return (
       <MainPlayerWrapper >
 
         <PlayPauseSongHeader>
-          <PlayButtonApp isPaused={this.state.isPaused} handlePlayPause={this.handlePlayPause}/>
-          {!this.state.song.length ? <div /> : <SongArtistApp song={this.state.song[0]}/>}
+          <PlayButtonApp isPaused={this.state.isPaused} handlePlayPause={this.handlePlayPause} />
+          {!this.state.song.length ? <div /> : <SongArtistApp song={this.state.song[0]} />}
         </PlayPauseSongHeader>
 
         <DateTag>
-          {!this.state.song.length ? <div /> : <DateTagApp song={this.state.song[0]}/>}
+          {!this.state.song.length ? <div /> : <DateTagApp song={this.state.song[0]} />}
         </DateTag>
 
         <Album>
-          {/* Album Art */}
+          {!this.state.song.length ? <div /> : <AlbumPicture song={this.state.song[0]} />}
         </Album>
 
         <WaveFormComments>
           {!this.state.song.length ? <div /> : <WaveFormApp song={this.state.song[0]}/>}
           {/* Comments */}
         </WaveFormComments>
+
+        {/* <button>SONG CHANGE</button> */}
 
       </MainPlayerWrapper>
     );
@@ -86,6 +93,7 @@ const MainPlayerWrapper = styled.div`
   grid-template-columns: repeat(4, 1fr) repeat(3, 10%);
   grid-template-rows: 20% auto 35%;
   grid-gap: 15px;
+  position: absolute;
 `;
 
 const PlayPauseSongHeader = styled.div`
