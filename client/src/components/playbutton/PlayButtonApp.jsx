@@ -16,7 +16,7 @@ height: 65px;
 width: 65px;
 background-color: #ff5722;
 border-radius: 50%;
-border: 1px solid ff5722;
+border: none;
 outline: none;
 
 &:hover {
