@@ -14,7 +14,7 @@ function SongArtistApp(props) {
 
 const Container = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: space-evenly;
   padding-left: 4px;
