@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import PlayButtonApp from './playbutton/PlayButtonApp.jsx';
 import SongArtistApp from './songartist/SongArtistApp.jsx';
 import DateTagApp from './datetag/DateTagApp.jsx';
-import AlbumPicture from './albumpicture/AlbumPictureApp.jsx'
+
+import WaveFormApp from './waveform/WaveFormApp.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class App extends React.Component {
         </Album>
 
         <WaveFormComments>
-          {/* WaveForm */}
+          {!this.state.song.length ? <div /> : <WaveFormApp song={this.state.song[0]}/>}
           {/* Comments */}
         </WaveFormComments>
 
