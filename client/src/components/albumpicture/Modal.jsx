@@ -7,8 +7,13 @@ const modalroot = document.getElementById('modalroot');
 function Modal(props) {
   return ReactDom.createPortal(
     <Modalwrapper onClick={props.toggleModal}>
-      <ModalMain >
-        <AlbumArt src={props.picture} />
+      <ModalMain>
+        <TitleAlbumArt>
+          <SongHeader>
+            <div>hello</div>
+          </SongHeader>
+          <AlbumArt src={props.picture} />
+        </TitleAlbumArt>
       </ModalMain>
     </Modalwrapper>
     , modalroot);
@@ -24,16 +29,35 @@ const Modalwrapper = styled.div`
 `;
 
 const ModalMain = styled.div`
-  top: 65%;
+  top: 50%;
   left: 50%;
-  position: fixed;
-  width: 600px;
-  height: 800px;
+  position: absolute;
+  width: 500px;
+  height: 570px;
   transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: space-evenly;
+  border: red solid 2px;
+  background: white;
+`;
+
+const TitleAlbumArt = styled.div`
+  width: 470px;
+  height: 540px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+`;
+
+const SongHeader = styled.div`
+  width: 100%;
+  font-size: 20px;
+  padding-top: 20px;
+  border-bottom: #80808045 solid 1px;
 `;
 
 const AlbumArt = styled.img`
-  width: 100%;
+  width: 100%
 `;
 
 
