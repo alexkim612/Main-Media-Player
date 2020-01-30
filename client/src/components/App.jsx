@@ -90,6 +90,7 @@ const MainPlayerWrapper = styled.div`
   grid-template-columns: repeat(4, 1fr) repeat(3, 10%);
   grid-template-rows: 20% auto 35%;
   grid-gap: 15px;
+  position: absolute;
 `;
 
 const PlayPauseSongHeader = styled.div`

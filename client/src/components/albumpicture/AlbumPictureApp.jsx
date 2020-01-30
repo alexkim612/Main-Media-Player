@@ -10,34 +10,31 @@ class AlbumPictureApp extends React.Component {
       isModalOpen: false
     }
 
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
-  openModal() {
-    this.setState({
-      isModalOpen: true
-    });
-  }
-
-  closeModal() {
-    this.setState({
-      isModalOpen: false
-    });
+  toggleModal() {
+    if(!this.state.isModalOpen) {
+      this.setState({
+        isModalOpen: true
+      });
+    } else {
+      this.setState({
+        isModalOpen: false
+      });
+    }
   }
 
 
   render() {
     return (
-      <div onClick={this.openModal}>
+      <div onClick={this.toggleModal}>
         <CoverArt src={this.props.song.albumURL}/>
-
-        {this.state.isModalOpen ? 
-        <Modal closeModal={this.closeModal} isModalOpen={this.state.isModalOpen}> 
-          Hello from modal
-        </Modal> 
-        : null}
-        
+          {this.state.isModalOpen ?
+              <Modal toggleModal={this.toggleModal} isModalOpen={this.state.isModalOpen} picture={this.props.song.albumURL}>
+              Hello from modal
+              </Modal>
+            : null}
       </div>
     );
   }
