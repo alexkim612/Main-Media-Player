@@ -63,6 +63,8 @@ class App extends React.Component {
           {/* Comments */}
         </WaveFormComments>
 
+        {/* <button>SONG CHANGE</button> */}
+
       </MainPlayerWrapper>
     );
   }
