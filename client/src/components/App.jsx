@@ -80,9 +80,8 @@ class App extends React.Component {
 const MainPlayerWrapper = styled.div`
   max-width: 1240px;
   min-width: 960px;
-  height: 380px;
+  height: auto;
   margin: auto;
-  margin-top: 50px;
   background: linear-gradient(to right, #d3d3d3 -3%, #a9a9a9 105%);
   padding-top: 30px;
   padding-bottom: 30px;
@@ -92,7 +91,7 @@ const MainPlayerWrapper = styled.div`
   grid-template-columns: repeat(4, 1fr) repeat(3, 10%);
   grid-template-rows: 20% auto 35%;
   grid-gap: 15px;
-  position: absolute;
+  position: fixed;
 `;
 
 const PlayPauseSongHeader = styled.div`
