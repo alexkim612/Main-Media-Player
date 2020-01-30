@@ -10,7 +10,7 @@ function Modal(props) {
       <ModalMain>
         <TitleAlbumArt>
           <SongHeader>
-            <div>hello</div>
+            <div>{props.songName}</div>
           </SongHeader>
           <AlbumArt src={props.picture} />
         </TitleAlbumArt>
@@ -26,6 +26,7 @@ const Modalwrapper = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
+  background: rgba(255,255,255, 0.75);
 `;
 
 const ModalMain = styled.div`
@@ -37,7 +38,6 @@ const ModalMain = styled.div`
   transform: translate(-50%,-50%);
   display: flex;
   justify-content: space-evenly;
-  border: red solid 2px;
   background: white;
 `;
 
@@ -57,9 +57,9 @@ const SongHeader = styled.div`
 `;
 
 const AlbumArt = styled.img`
-  width: 100%
+  width: 100%;
+  border: grey solid 1px;
 `;
-
 
 
 export default Modal;

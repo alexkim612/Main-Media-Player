@@ -31,8 +31,7 @@ class AlbumPictureApp extends React.Component {
       <div onClick={this.toggleModal}>
         <CoverArt src={this.props.song.albumURL}/>
           {this.state.isModalOpen ?
-              <Modal toggleModal={this.toggleModal} isModalOpen={this.state.isModalOpen} picture={this.props.song.albumURL}>
-              Hello from modal
+              <Modal toggleModal={this.toggleModal} songName={this.props.song.name} picture={this.props.song.albumURL}>
               </Modal>
             : null}
       </div>
