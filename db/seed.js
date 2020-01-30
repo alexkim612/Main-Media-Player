@@ -1,3 +1,5 @@
+const path = require('path');
+
 const Song = require('./index.js');
 
 //fake data generator
@@ -39,7 +41,7 @@ for (let i = 0; i < 100; i++) {
     albumName: faker.random.words(randomizer(3)),
     albumURL: 'https://www.billboard.com/files/styles/900_wide/public/media/Joy-Division-Unknown-Pleasures-album-covers-billboard-1000x1000.jpg',
     songURL: faker.internet.url(),
-    // const waveformURL: waveformpicture
+    // waveformURL: "client/src/components/waveform/waveformtransparent.png",
     comments: comments
   }
   fakedata.push(newSong);
