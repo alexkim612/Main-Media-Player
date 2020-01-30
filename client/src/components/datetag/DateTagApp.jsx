@@ -26,7 +26,7 @@ function DateTagApp(props) {
   return (
     <Container>
       <Dated>{dateDiff()}</Dated>
-      <Tag>#{props.song.tag}</Tag>
+      <Tag># {props.song.tag}</Tag>
     </Container>
   );
 }
@@ -47,11 +47,11 @@ const Dated = styled.div`
 `;
 
 const Tag = styled.div`
-  background: lightgrey;
+  background: #a3a2a2;
   color: white;
   padding: 2px 8px;
   border-radius: 25px;
-  text-align: right;
+  text-align: center;
 `;
 
 export default DateTagApp;

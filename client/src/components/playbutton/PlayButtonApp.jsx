@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 function PlayButtonApp(props) {
-  let playOrPause = props.isPaused ? 'pause' : 'play_arrow'
+  let playOrPause = props.isPaused ? 'play_arrow' : 'pause'
   return (
     <PlayPauseButton onClick={props.handlePlayPause}>
       <i className="material-icons" style={{ fontSize: 45, color: 'white', }}>{playOrPause}</i>

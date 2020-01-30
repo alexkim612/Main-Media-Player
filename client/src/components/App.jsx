@@ -83,7 +83,7 @@ const MainPlayerWrapper = styled.div`
   min-width: 960px;
   height: auto;
   margin: auto;
-  background: linear-gradient(to right, #d3d3d3 -3%, #a9a9a9 105%);
+  background: linear-gradient(to right,#919191 -3%,#4b4a4a 105%);
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: 30px;
@@ -96,26 +96,26 @@ const MainPlayerWrapper = styled.div`
 `;
 
 const PlayPauseSongHeader = styled.div`
-  border: orange solid 1px;
+  // border: orange solid 1px;
   grid-column: span 3 / auto;
   display: flex;
 `;
 
 const DateTag = styled.div`
-  border: blue solid 1px;
+  // border: blue solid 1px;
   flex-direction: row;
   display: flex;
   justify-content: flex-end;
 `;
 
 const Album = styled.div`
-  border: red solid 1px;
+  // border: red solid 1px;
   grid-column: span 3 / auto;
   grid-row: span 3 / auto;
 `;
 
 const WaveFormComments = styled.div`
-  border: green solid 1px;
+  // border: green solid 1px;
   grid-column: span 4 / auto;
   grid-row-start: 3;
 `;
