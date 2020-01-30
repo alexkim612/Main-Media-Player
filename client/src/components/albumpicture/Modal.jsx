@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
 
 const modalroot = document.getElementById('modalroot');
 
 function Modal(props) {
   return ReactDom.createPortal(
     <Modalwrapper onClick={props.toggleModal}>
-      <ModalMain>
+      <ModalMain >
         <TitleAlbumArt>
           <SongHeader>
             <div>{props.songName}</div>
@@ -30,6 +31,24 @@ const Modalwrapper = styled.div`
   z-index: 1;
 `;
 
+const MoveIn = keyframes`
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 50%;
+  }
+`;
+
+const MoveOut = keyframes`
+  0% {
+    top: 60%;
+  }
+  100% {
+    top: 0%;
+  }
+`;
+
 const ModalMain = styled.div`
   top: 50%;
   left: 50%;
@@ -40,7 +59,11 @@ const ModalMain = styled.div`
   display: flex;
   justify-content: space-evenly;
   background: white;
+  animation: ${MoveIn};
+  animation-duration: 0.5s;
 `;
+
+
 
 const TitleAlbumArt = styled.div`
   width: 470px;
