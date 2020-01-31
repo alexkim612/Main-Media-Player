@@ -23,6 +23,7 @@ class App extends React.Component {
     this.fetchData = this.fetchData.bind(this);
     this.changeCurrTime = this.changeCurrTime.bind(this);
     this.setWaveformData = this.setWaveformData.bind(this);
+    this.changeToMinutes = this.changeToMinutes.bind(this);
     this.sound = new Audio(mp3);
   }
 
@@ -75,6 +76,12 @@ class App extends React.Component {
     }
   }
 
+  changeToMinutes(time) {
+    let min = Math.floor(time / 60);
+    let sec = Math.floor(time % 60).toString();
+    return `${min}:${sec.padStart(2, '0')}`;
+  }
+
   // grab songs from db
   componentDidMount() {
     this.fetchData();
@@ -109,8 +116,8 @@ class App extends React.Component {
         <WaveFormComments>
           {/* Comments */}
           <TimeStampContainer>
-            <CurrentTimeStamp>{this.state.currTime}</CurrentTimeStamp>
-            <DurationTimeStamp>{this.sound.duration}</DurationTimeStamp>
+            <CurrentTimeStamp>{this.changeToMinutes(this.state.currTime)}</CurrentTimeStamp>
+            {!this.state.song.length ? <div/> : <DurationTimeStamp>{this.changeToMinutes(this.sound.duration)}</DurationTimeStamp>}
           </TimeStampContainer>
 
           {!this.state.song.length ? <div /> : <WaveFormApp songinfo={this.state.song[0]} song={this.sound} wfdata={this.state.waveformData} />}
@@ -177,7 +184,8 @@ const TimeStampContainer = styled.div`
   justify-content: space-between;
   z-index: 10;
   position: absolute;
-  top: 40%;
+  top: 55%;
+  border-bottom: black solid 1px;
 `;
 
 const TimeStamp = styled.div`
@@ -185,6 +193,8 @@ const TimeStamp = styled.div`
   width: 28px;
   border: black solid 1px;
   background-color: black;
+  font-size: 12px;
+  text-align: center;
 `;
 
 const CurrentTimeStamp = styled(TimeStamp)`
