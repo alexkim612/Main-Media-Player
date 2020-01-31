@@ -6,6 +6,7 @@ import SongArtistApp from './songartist/SongArtistApp.jsx';
 import DateTagApp from './datetag/DateTagApp.jsx';
 import AlbumPicture from './albumpicture/AlbumPictureApp.jsx';
 import WaveFormApp from './waveform/WaveFormApp.jsx';
+import mp3 from '/Users/alexanderkim/Desktop/MediaPlayer/songs/\(Club\)\ Modjo\ -\ Lady_\(Pryda_Mashup\).mp3';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,11 +14,12 @@ class App extends React.Component {
 
     this.state = {
       song: [],
-      isPaused: true
+      isPaused: true,
     }
 
     this.handlePlayPause = this.handlePlayPause.bind(this);
     this.fetchData =this.fetchData.bind(this);
+    this.sound = new Audio(mp3);
   }
 
   //handle isPaused
@@ -48,6 +50,14 @@ class App extends React.Component {
   }
 
   render() {
+
+    //play/pause music
+    if(!this.state.isPaused) {
+      this.sound.play();
+    } else {
+      this.sound.pause();
+    }
+
     return (
       <MainPlayerWrapper >
 
@@ -69,7 +79,7 @@ class App extends React.Component {
           {/* Comments */}
         </WaveFormComments>
 
-        {/* <button>SONG CHANGE</button> */}
+
 
       </MainPlayerWrapper>
     );
