@@ -21,15 +21,24 @@ class App extends React.Component {
 
     this.handlePlayPause = this.handlePlayPause.bind(this);
     this.fetchData = this.fetchData.bind(this);
-    this.changeCurrTime = this.changeCurrTime.bind(this);
+    this.onTimeUpdate = this.onTimeUpdate.bind(this);
     this.setWaveformData = this.setWaveformData.bind(this);
     this.changeToMinutes = this.changeToMinutes.bind(this);
     this.sound = new Audio(mp3);
   }
 
+  //setstate of current time
+  onTimeUpdate() {
+    this.sound.ontimeupdate = () => {
+      this.setState({
+        currTime: this.sound.currentTime
+      });
+    }
+  }
+
   //handle isPaused
   handlePlayPause() {
-    const interval = () => { setInterval(this.changeCurrTime, 500) };
+    const interval = () => { setInterval(this.onTimeUpdate, 500) };
 
     if (this.state.isPaused) {
       interval();
@@ -65,15 +74,6 @@ class App extends React.Component {
     this.setState({
       waveformData: freqData
     });
-  }
-
-  //setstate of current time
-  changeCurrTime() {
-    this.sound.ontimeupdate = () => {
-      this.setState({
-        currTime: this.sound.currentTime
-      });
-    }
   }
 
   changeToMinutes(time) {
@@ -117,12 +117,12 @@ class App extends React.Component {
 
           <TimeStampContainer>
             <CurrentTimeStamp>{this.changeToMinutes(this.state.currTime)}</CurrentTimeStamp>
-            {!this.state.song.length ? <div/> : <DurationTimeStamp>{this.changeToMinutes(this.sound.duration)}</DurationTimeStamp>}
+            {!this.state.song.length ? <div /> : <DurationTimeStamp>{this.changeToMinutes(this.sound.duration)}</DurationTimeStamp>}
           </TimeStampContainer>
 
           {/* Comments */}
 
-          {!this.state.song.length ? <div /> : <WaveFormApp songinfo={this.state.song[0]} song={this.sound} wfdata={this.state.waveformData} />}
+          {!this.state.song.length ? <div /> : <WaveFormApp isPaused={this.state.isPaused} wfdata={this.state.waveformData} />}
 
         </WaveFormComments>
 
