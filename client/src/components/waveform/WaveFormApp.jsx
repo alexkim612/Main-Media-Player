@@ -13,20 +13,13 @@ function WaveFormApp(props) {
   }
 
   return (
-    // <div>
-      <DataWrap >
-      {freqData.map((value, i) => <Bar height={value} key={i}/>)}
-      </DataWrap>
-      /*<Waveform src={img}>
-      </Waveform> */
-    // </div>
+
+    <DataWrap >
+      {freqData.map((value, i) => <Bar height={value} key={i} />)}
+    </DataWrap>
+
   );
 }
-
-const Waveform = styled.img`
-  height: 100%;
-  width: 100%;
-`;
 
 const Bar = styled.div.attrs(props => ({
   style: {
