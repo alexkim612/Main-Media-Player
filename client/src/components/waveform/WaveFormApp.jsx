@@ -8,7 +8,7 @@ function WaveFormApp(props) {
 
   const freqData = [];
 
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 250; i++) {
     freqData.push(Math.floor(Math.random() * Math.floor((1000 - 300)) + 300) / 10);
   }
 
@@ -33,7 +33,7 @@ const Bar = styled.div.attrs(props => ({
     height: props.height + '%'
   },
 }))`
-  width: 0.5%;
+  width: 0.4%;
   background-color: white;
   border: lightgrey solid 0.5px;
 `;

@@ -26,6 +26,14 @@ class App extends React.Component {
 
   //handle isPaused
   handlePlayPause() {
+    const interval = () => {setInterval(this.changeCurrTime, 500)};
+
+    if (this.state.isPaused) {
+      interval();
+    } else {
+      clearInterval(interval);
+    }
+
     this.setState({
       isPaused: this.state.isPaused ? false : true
     });
@@ -69,8 +77,6 @@ class App extends React.Component {
       this.sound.pause();
     }
 
-    setInterval(this.changeCurrTime, 500);
-
     return (
       <MainPlayerWrapper >
 
@@ -113,7 +119,7 @@ const MainPlayerWrapper = styled.div`
   padding-right: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr) repeat(3, 10%);
-  grid-template-rows: 20% auto 35%;
+  grid-template-rows: 20% auto 26%;
   grid-gap: 15px;
   position: fixed;
 `;
