@@ -6,6 +6,7 @@ import SongArtistApp from './songartist/SongArtistApp.jsx';
 import DateTagApp from './datetag/DateTagApp.jsx';
 import AlbumPicture from './albumpicture/AlbumPictureApp.jsx';
 import WaveFormApp from './waveform/WaveFormApp.jsx';
+import mp3 from '/Users/alexanderkim/Desktop/MediaPlayer/songs/\(Club\)\ Modjo\ -\ Lady_\(Pryda_Mashup\).mp3';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,15 +14,46 @@ class App extends React.Component {
 
     this.state = {
       song: [],
-      isPaused: true
+      isPaused: true,
+      currTime: 0,
+      waveformData: []
     }
 
     this.handlePlayPause = this.handlePlayPause.bind(this);
-    this.fetchData =this.fetchData.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+    this.onTimeUpdate = this.onTimeUpdate.bind(this);
+    this.setWaveformData = this.setWaveformData.bind(this);
+    this.changeToMinutes = this.changeToMinutes.bind(this);
+    this.handleClickTimeUpdate = this.handleClickTimeUpdate.bind(this);
+    this.sound = new Audio(mp3);
+  }
+
+  handleClickTimeUpdate(index) {
+    let newTime = (index /250 * this.sound.duration);
+    this.setState({
+      currTime: newTime
+    });
+  }
+
+  //setstate of current time
+  onTimeUpdate() {
+    this.sound.ontimeupdate = () => {
+      this.setState({
+        currTime: this.sound.currentTime
+      });
+    }
   }
 
   //handle isPaused
   handlePlayPause() {
+    const interval = () => { setInterval(this.onTimeUpdate, 500) };
+
+    if (this.state.isPaused) {
+      interval();
+    } else {
+      clearInterval(interval);
+    }
+
     this.setState({
       isPaused: this.state.isPaused ? false : true
     });
@@ -42,12 +74,37 @@ class App extends React.Component {
       });
   }
 
-  // grab songs from db
+  setWaveformData() {
+    const freqData = [];
+    for (let i = 0; i < 250; i++) {
+      freqData.push(Math.floor(Math.random() * Math.floor((1000 - 400)) + 400) / 10);
+    }
+    this.setState({
+      waveformData: freqData
+    });
+  }
+
+  changeToMinutes(time) {
+    let min = Math.floor(time / 60);
+    let sec = Math.floor(time % 60).toString();
+    return `${min}:${sec.padStart(2, '0')}`;
+  }
+
+  // grab songs from db, set waveform data
   componentDidMount() {
     this.fetchData();
+    this.setWaveformData();
   }
 
   render() {
+
+    //play/pause music
+    if (!this.state.isPaused) {
+      this.sound.play();
+    } else {
+      this.sound.pause();
+    }
+
     return (
       <MainPlayerWrapper >
 
@@ -65,11 +122,19 @@ class App extends React.Component {
         </Album>
 
         <WaveFormComments>
-          {!this.state.song.length ? <div /> : <WaveFormApp song={this.state.song[0]}/>}
+
+          <TimeStampContainer>
+            <CurrentTimeStamp>{this.changeToMinutes(this.state.currTime)}</CurrentTimeStamp>
+            {!this.state.song.length ? <div /> : <DurationTimeStamp>{this.changeToMinutes(this.sound.duration)}</DurationTimeStamp>}
+          </TimeStampContainer>
+
           {/* Comments */}
+
+          {!this.state.song.length ? <div /> : <WaveFormApp isPaused={this.state.isPaused} wfdata={this.state.waveformData} handleClickTimeUpdate={this.handleClickTimeUpdate}/>}
+
         </WaveFormComments>
 
-        {/* <button>SONG CHANGE</button> */}
+
 
       </MainPlayerWrapper>
     );
@@ -90,9 +155,8 @@ const MainPlayerWrapper = styled.div`
   padding-right: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr) repeat(3, 10%);
-  grid-template-rows: 20% auto 35%;
+  grid-template-rows: 20% auto 32%;
   grid-gap: 15px;
-  position: fixed;
 `;
 
 const PlayPauseSongHeader = styled.div`
@@ -112,12 +176,45 @@ const Album = styled.div`
   // border: red solid 1px;
   grid-column: span 3 / auto;
   grid-row: span 3 / auto;
+  margin-left: 15px;
 `;
 
 const WaveFormComments = styled.div`
   // border: green solid 1px;
   grid-column: span 4 / auto;
   grid-row-start: 3;
+  margin-bottom: 25px;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+const TimeStampContainer = styled.div`
+  width: 101%;
+  height: 13px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  position: absolute;
+  top: 55%;
+  border-bottom: black solid 1px;
+`;
+
+const TimeStamp = styled.div`
+  height: 100%;
+  width: 28px;
+  border: black solid 1px;
+  background-color: black;
+  font-size: 12px;
+  text-align: center;
+`;
+
+const CurrentTimeStamp = styled(TimeStamp)`
+  color: #f44336;
+`;
+
+const DurationTimeStamp = styled(TimeStamp)`
+  color: darkgrey;
 `;
 
 export default App;
