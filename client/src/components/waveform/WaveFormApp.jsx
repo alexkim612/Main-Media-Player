@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import img from './waveformtransparent.png';
 
 function WaveFormApp(props) {
+  // console.log(props.song.currentTime);
+  // console.log(props.song.duration);
+
   const freqData = [];
 
   for (let i = 0; i < 200; i++) {
     freqData.push(Math.floor(Math.random() * Math.floor((1000 - 300)) + 300) / 10);
   }
-
-  console.log(freqData);
 
   return (
     // <div>
@@ -27,9 +28,12 @@ const Waveform = styled.img`
   width: 100%;
 `;
 
-const Bar = styled.div`
+const Bar = styled.div.attrs(props => ({
+  style: {
+    height: props.height + '%'
+  },
+}))`
   width: 0.5%;
-  height: ${props => props.height}%;
   background-color: white;
   border: lightgrey solid 0.5px;
 `;

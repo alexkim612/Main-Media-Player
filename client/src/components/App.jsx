@@ -15,10 +15,12 @@ class App extends React.Component {
     this.state = {
       song: [],
       isPaused: true,
+      currTime: 0
     }
 
     this.handlePlayPause = this.handlePlayPause.bind(this);
-    this.fetchData =this.fetchData.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+    this.changeCurrTime = this.changeCurrTime.bind(this);
     this.sound = new Audio(mp3);
   }
 
@@ -44,6 +46,15 @@ class App extends React.Component {
       });
   }
 
+  //setstate of current time
+  changeCurrTime() {
+    this.sound.ontimeupdate = () => {
+      this.setState({
+        currTime: this.sound.currentTime
+      });
+    }
+  }
+
   // grab songs from db
   componentDidMount() {
     this.fetchData();
@@ -52,11 +63,13 @@ class App extends React.Component {
   render() {
 
     //play/pause music
-    if(!this.state.isPaused) {
+    if (!this.state.isPaused) {
       this.sound.play();
     } else {
       this.sound.pause();
     }
+
+    setInterval(this.changeCurrTime, 500);
 
     return (
       <MainPlayerWrapper >
@@ -75,7 +88,7 @@ class App extends React.Component {
         </Album>
 
         <WaveFormComments>
-          {!this.state.song.length ? <div /> : <WaveFormApp song={this.state.song[0]}/>}
+          {!this.state.song.length ? <div /> : <WaveFormApp songinfo={this.state.song[0]} song={this.sound} />}
           {/* Comments */}
         </WaveFormComments>
 
