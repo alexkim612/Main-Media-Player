@@ -114,11 +114,13 @@ class App extends React.Component {
         </Album>
 
         <WaveFormComments>
-          {/* Comments */}
+
           <TimeStampContainer>
             <CurrentTimeStamp>{this.changeToMinutes(this.state.currTime)}</CurrentTimeStamp>
             {!this.state.song.length ? <div/> : <DurationTimeStamp>{this.changeToMinutes(this.sound.duration)}</DurationTimeStamp>}
           </TimeStampContainer>
+
+          {/* Comments */}
 
           {!this.state.song.length ? <div /> : <WaveFormApp songinfo={this.state.song[0]} song={this.sound} wfdata={this.state.waveformData} />}
 
@@ -175,14 +177,16 @@ const WaveFormComments = styled.div`
   grid-row-start: 3;
   margin-bottom: 25px;
   position: relative;
+  display: flex;
+  justify-content: space-evenly;
 `;
 
 const TimeStampContainer = styled.div`
-  width: 100%;
+  width: 101%;
   height: 13px;
   display: flex;
   justify-content: space-between;
-  z-index: 10;
+  z-index: 1;
   position: absolute;
   top: 55%;
   border-bottom: black solid 1px;
