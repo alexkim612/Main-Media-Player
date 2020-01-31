@@ -24,7 +24,15 @@ class App extends React.Component {
     this.onTimeUpdate = this.onTimeUpdate.bind(this);
     this.setWaveformData = this.setWaveformData.bind(this);
     this.changeToMinutes = this.changeToMinutes.bind(this);
+    this.handleClickTimeUpdate = this.handleClickTimeUpdate.bind(this);
     this.sound = new Audio(mp3);
+  }
+
+  handleClickTimeUpdate(index) {
+    let newTime = (index /250 * this.sound.duration);
+    this.setState({
+      currTime: newTime
+    });
   }
 
   //setstate of current time
@@ -69,7 +77,7 @@ class App extends React.Component {
   setWaveformData() {
     const freqData = [];
     for (let i = 0; i < 250; i++) {
-      freqData.push(Math.floor(Math.random() * Math.floor((1000 - 300)) + 300) / 10);
+      freqData.push(Math.floor(Math.random() * Math.floor((1000 - 400)) + 400) / 10);
     }
     this.setState({
       waveformData: freqData
@@ -82,7 +90,7 @@ class App extends React.Component {
     return `${min}:${sec.padStart(2, '0')}`;
   }
 
-  // grab songs from db
+  // grab songs from db, set waveform data
   componentDidMount() {
     this.fetchData();
     this.setWaveformData();
@@ -122,7 +130,7 @@ class App extends React.Component {
 
           {/* Comments */}
 
-          {!this.state.song.length ? <div /> : <WaveFormApp isPaused={this.state.isPaused} wfdata={this.state.waveformData} />}
+          {!this.state.song.length ? <div /> : <WaveFormApp isPaused={this.state.isPaused} wfdata={this.state.waveformData} handleClickTimeUpdate={this.handleClickTimeUpdate}/>}
 
         </WaveFormComments>
 

@@ -6,6 +6,7 @@ class WaveFormApp extends React.Component {
     super(props);
 
     this.state = {
+      //250 indexes
       index: 0
     }
 
@@ -14,7 +15,12 @@ class WaveFormApp extends React.Component {
   render() {
     return (
       <DataWrap isPaused={this.props.isPaused}>
-        {this.props.wfdata.map((value, i) => <Bar height={value} key={i} />)}
+        {this.props.wfdata.map((value, index) => <Bar 
+          height={value}
+          key={index}
+          id={index}
+          onClick={(e) => this.props.handleClickTimeUpdate(e.target.id)}
+          />)}
       </DataWrap>
     );
   }
