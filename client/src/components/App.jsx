@@ -15,18 +15,20 @@ class App extends React.Component {
     this.state = {
       song: [],
       isPaused: true,
-      currTime: 0
+      currTime: 0,
+      waveformData: []
     }
 
     this.handlePlayPause = this.handlePlayPause.bind(this);
     this.fetchData = this.fetchData.bind(this);
     this.changeCurrTime = this.changeCurrTime.bind(this);
+    this.setWaveformData = this.setWaveformData.bind(this);
     this.sound = new Audio(mp3);
   }
 
   //handle isPaused
   handlePlayPause() {
-    const interval = () => {setInterval(this.changeCurrTime, 500)};
+    const interval = () => { setInterval(this.changeCurrTime, 500) };
 
     if (this.state.isPaused) {
       interval();
@@ -54,6 +56,16 @@ class App extends React.Component {
       });
   }
 
+  setWaveformData() {
+    const freqData = [];
+    for (let i = 0; i < 250; i++) {
+      freqData.push(Math.floor(Math.random() * Math.floor((1000 - 300)) + 300) / 10);
+    }
+    this.setState({
+      waveformData: freqData
+    });
+  }
+
   //setstate of current time
   changeCurrTime() {
     this.sound.ontimeupdate = () => {
@@ -66,6 +78,7 @@ class App extends React.Component {
   // grab songs from db
   componentDidMount() {
     this.fetchData();
+    this.setWaveformData();
   }
 
   render() {
@@ -94,8 +107,14 @@ class App extends React.Component {
         </Album>
 
         <WaveFormComments>
-          {!this.state.song.length ? <div /> : <WaveFormApp songinfo={this.state.song[0]} song={this.sound} />}
           {/* Comments */}
+          <TimeStampContainer>
+            <CurrentTimeStamp>{this.state.currTime}</CurrentTimeStamp>
+            <DurationTimeStamp>{this.sound.duration}</DurationTimeStamp>
+          </TimeStampContainer>
+
+          {!this.state.song.length ? <div /> : <WaveFormApp songinfo={this.state.song[0]} song={this.sound} wfdata={this.state.waveformData} />}
+
         </WaveFormComments>
 
 
@@ -119,9 +138,8 @@ const MainPlayerWrapper = styled.div`
   padding-right: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr) repeat(3, 10%);
-  grid-template-rows: 20% auto 26%;
+  grid-template-rows: 20% auto 32%;
   grid-gap: 15px;
-  position: fixed;
 `;
 
 const PlayPauseSongHeader = styled.div`
@@ -141,12 +159,40 @@ const Album = styled.div`
   // border: red solid 1px;
   grid-column: span 3 / auto;
   grid-row: span 3 / auto;
+  margin-left: 15px;
 `;
 
 const WaveFormComments = styled.div`
   // border: green solid 1px;
   grid-column: span 4 / auto;
   grid-row-start: 3;
+  margin-bottom: 25px;
+  position: relative;
+`;
+
+const TimeStampContainer = styled.div`
+  width: 100%;
+  height: 13px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  position: absolute;
+  top: 40%;
+`;
+
+const TimeStamp = styled.div`
+  height: 100%;
+  width: 28px;
+  border: black solid 1px;
+  background-color: black;
+`;
+
+const CurrentTimeStamp = styled(TimeStamp)`
+  color: #f44336;
+`;
+
+const DurationTimeStamp = styled(TimeStamp)`
+  color: darkgrey;
 `;
 
 export default App;

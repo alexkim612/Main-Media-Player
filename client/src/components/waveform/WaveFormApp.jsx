@@ -1,21 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import img from './waveformtransparent.png';
 
 function WaveFormApp(props) {
-  // console.log(props.song.currentTime);
-  // console.log(props.song.duration);
-
-  const freqData = [];
-
-  for (let i = 0; i < 250; i++) {
-    freqData.push(Math.floor(Math.random() * Math.floor((1000 - 300)) + 300) / 10);
-  }
 
   return (
 
     <DataWrap >
-      {freqData.map((value, i) => <Bar height={value} key={i} />)}
+      {props.wfdata.map((value, i) => <Bar height={value} key={i} />)}
     </DataWrap>
 
   );
@@ -37,7 +28,6 @@ const DataWrap = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  border: black solid 1px;
 `;
 
 const test = styled.canvas`
