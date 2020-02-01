@@ -30,6 +30,7 @@ class App extends React.Component {
 
   handleClickTimeUpdate(index) {
     let newTime = (index /250 * this.sound.duration);
+    this.sound.currentTime = newTime;
     this.setState({
       currTime: newTime
     });
@@ -130,7 +131,7 @@ class App extends React.Component {
 
           {/* Comments */}
 
-          {!this.state.song.length ? <div /> : <WaveFormApp isPaused={this.state.isPaused} wfdata={this.state.waveformData} handleClickTimeUpdate={this.handleClickTimeUpdate}/>}
+          {!this.state.song.length ? <div /> : <WaveFormApp isPaused={this.state.isPaused} wfdata={this.state.waveformData} handleClickTimeUpdate={this.handleClickTimeUpdate} currTime={this.state.currTime}/>}
 
         </WaveFormComments>
 
