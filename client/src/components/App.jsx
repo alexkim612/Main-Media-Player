@@ -30,6 +30,7 @@ class App extends React.Component {
 
   handleClickTimeUpdate(index) {
     let newTime = (index /250 * this.sound.duration);
+    this.sound.currentTime = newTime;
     this.setState({
       currTime: newTime
     });
