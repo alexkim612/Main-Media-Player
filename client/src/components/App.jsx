@@ -224,7 +224,8 @@ const CommentsContainer = styled.div`
   z-index: 1;
   position: absolute;
   top: 70%;
-  border: red solid 1px;
+  border-top: #656565 solid 1px;
+  // border: red solid 1px;
 `;
 
 export default App;
