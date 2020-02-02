@@ -12,13 +12,21 @@ class WaveFormApp extends React.Component {
 
   }
 
+  isFilled(index) {
+    if(index <= this.props.currTime / this.props.duration * 250) {
+      return true;
+    }
+    return false;
+  }
+
   render() {
     return (
       <DataWrap isPaused={this.props.isPaused}>
-        {this.props.wfdata.map((value, index) => <Bar 
+        {this.props.wfdata.map((value, index) => <Bar
           height={value}
           key={index}
           id={index}
+          active={this.isFilled(index)}
           onClick={(e) => this.props.handleClickTimeUpdate(e.target.id)}
           />)}
       </DataWrap>
@@ -46,9 +54,11 @@ const Bar = styled.div.attrs(props => ({
   },
 }))`
   width: 0.4%;
-  background-color: white;
-  border: lightgrey solid 0.5px;
-
+  border: white solid 0.5px;
+  background: white;
+  ${({ active }) => active && `
+    background: orange;
+  `}
   //on hover while playing
 `;
 
