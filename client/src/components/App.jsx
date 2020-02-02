@@ -131,7 +131,7 @@ class App extends React.Component {
 
           {/* Comments */}
 
-          {!this.state.song.length ? <div /> : <WaveFormApp isPaused={this.state.isPaused} wfdata={this.state.waveformData} handleClickTimeUpdate={this.handleClickTimeUpdate} currTime={this.state.currTime}/>}
+          {!this.state.song.length ? <div /> : <WaveFormApp isPaused={this.state.isPaused} wfdata={this.state.waveformData} handleClickTimeUpdate={this.handleClickTimeUpdate} currTime={this.state.currTime} duration={this.sound.duration}/>}
 
         </WaveFormComments>
 

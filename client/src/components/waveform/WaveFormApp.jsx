@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {keyframes, css} from 'styled-components';
 
 class WaveFormApp extends React.Component {
   constructor(props) {
@@ -12,13 +12,21 @@ class WaveFormApp extends React.Component {
 
   }
 
+  isFilled(index) {
+    if(index <= this.props.currTime / this.props.duration * 250) {
+      return true;
+    }
+    return false;
+  }
+
   render() {
     return (
       <DataWrap isPaused={this.props.isPaused}>
-        {this.props.wfdata.map((value, index) => <Bar 
+        {this.props.wfdata.map((value, index) => <Bar
           height={value}
           key={index}
           id={index}
+          active={this.isFilled(index)}
           onClick={(e) => this.props.handleClickTimeUpdate(e.target.id)}
           />)}
       </DataWrap>
@@ -26,6 +34,7 @@ class WaveFormApp extends React.Component {
   }
 }
 
+//CSS styled-components
 const DataWrap = styled.div`
   display: flex;
   flex-direction: row;
@@ -40,15 +49,28 @@ const DataWrap = styled.div`
   }
 `;
 
+const SmoothTrans = keyframes`
+  0% {
+    left: 0;
+    background: orange;
+  }
+  100% {
+    left: 100%;
+    background: orange;
+  }
+`;
+
 const Bar = styled.div.attrs(props => ({
   style: {
     height: props.height + '%'
   },
 }))`
   width: 0.4%;
-  background-color: white;
-  border: lightgrey solid 0.5px;
-
+  border: lightgrey solid 1px;
+  background: white;
+  ${({ active }) => active && `
+  background: linear-gradient(to bottom, #ffc17a 0%,#ffc17a 0%,#ff6919 5%,#ff8930 74%,#ffc787 100%);
+  `}
   //on hover while playing
 `;
 
