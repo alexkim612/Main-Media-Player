@@ -69,7 +69,7 @@ const Bar = styled.div.attrs(props => ({
   border: lightgrey solid 1px;
   background: white;
   ${({ active }) => active && `
-  background: linear-gradient(to bottom, #ffc17a 0%,#ffc17a 0%,#ff6919 5%,#ff8930 74%,#ffc787 100%);
+  background: linear-gradient(to bottom, #db6a23, #db3f21, #dba386);
   `}
   //on hover while playing
 `;
