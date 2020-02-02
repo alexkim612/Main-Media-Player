@@ -1,37 +1,26 @@
 import React from 'react';
-import styled, {keyframes, css} from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
-class WaveFormApp extends React.Component {
-  constructor(props) {
-    super(props);
+function WaveFormApp(props) {
 
-    this.state = {
-      //250 indexes
-      index: 0
-    }
-
-  }
-
-  isFilled(index) {
-    if(index <= this.props.currTime / this.props.duration * 250) {
+  const isFilled = (index) => {
+    if (index <= props.currTime / props.duration * 250) {
       return true;
     }
     return false;
   }
 
-  render() {
-    return (
-      <DataWrap isPaused={this.props.isPaused}>
-        {this.props.wfdata.map((value, index) => <Bar
-          height={value}
-          key={index}
-          id={index}
-          active={this.isFilled(index)}
-          onClick={(e) => this.props.handleClickTimeUpdate(e.target.id)}
-          />)}
-      </DataWrap>
-    );
-  }
+  return (
+    <DataWrap isPaused={props.isPaused}>
+      {props.wfdata.map((value, index) => <Bar
+        height={value}
+        key={index}
+        id={index}
+        active={isFilled(index)}
+        onClick={(e) => props.handleClickTimeUpdate(e.target.id)}
+      />)}
+    </DataWrap>
+  );
 }
 
 //CSS styled-components
