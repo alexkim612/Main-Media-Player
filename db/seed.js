@@ -20,7 +20,7 @@ for (let i = 0; i < 100; i++) {
   
   //create comments
   var comments = [];
-  for (let j = 0; j < randomizer(20); j++) {
+  for (let j = 0; j < randomizer(25); j++) {
     newComment = {
       id: j,
       user: faker.internet.userName(),

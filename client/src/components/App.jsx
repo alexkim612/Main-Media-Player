@@ -6,6 +6,7 @@ import SongArtistApp from './songartist/SongArtistApp.jsx';
 import DateTagApp from './datetag/DateTagApp.jsx';
 import AlbumPicture from './albumpicture/AlbumPictureApp.jsx';
 import WaveFormApp from './waveform/WaveFormApp.jsx';
+import CommentsApp from './comments/CommentsApp.jsx';
 import mp3 from '/Users/alexanderkim/Desktop/MediaPlayer/songs/\(Club\)\ Modjo\ -\ Lady_\(Pryda_Mashup\).mp3';
 
 class App extends React.Component {
@@ -29,7 +30,7 @@ class App extends React.Component {
   }
 
   handleClickTimeUpdate(index) {
-    let newTime = (index /250 * this.sound.duration);
+    let newTime = (index / 250 * this.sound.duration);
     this.sound.currentTime = newTime;
     this.setState({
       currTime: newTime
@@ -129,13 +130,13 @@ class App extends React.Component {
             {!this.state.song.length ? <div /> : <DurationTimeStamp>{this.changeToMinutes(this.sound.duration)}</DurationTimeStamp>}
           </TimeStampContainer>
 
-          {/* Comments */}
+          <CommentsContainer>
+            {!this.state.song.length ? <div /> : <CommentsApp duration={this.sound.duration} comments={this.state.song[0].comments}/>}
+          </CommentsContainer>
 
-          {!this.state.song.length ? <div /> : <WaveFormApp isPaused={this.state.isPaused} wfdata={this.state.waveformData} handleClickTimeUpdate={this.handleClickTimeUpdate} currTime={this.state.currTime} duration={this.sound.duration}/>}
-
+          {!this.state.song.length ? <div /> : <WaveFormApp isPaused={this.state.isPaused} wfdata={this.state.waveformData} handleClickTimeUpdate={this.handleClickTimeUpdate} currTime={this.state.currTime} duration={this.sound.duration} />}
+            
         </WaveFormComments>
-
-
 
       </MainPlayerWrapper>
     );
@@ -198,7 +199,6 @@ const TimeStampContainer = styled.div`
   z-index: 1;
   position: absolute;
   top: 55%;
-  border-bottom: black solid 1px;
 `;
 
 const TimeStamp = styled.div`
@@ -216,6 +216,15 @@ const CurrentTimeStamp = styled(TimeStamp)`
 
 const DurationTimeStamp = styled(TimeStamp)`
   color: darkgrey;
+`;
+
+const CommentsContainer = styled.div`
+  width: 100%;
+  height: 20px;
+  z-index: 1;
+  position: absolute;
+  top: 70%;
+  border: red solid 1px;
 `;
 
 export default App;
