@@ -1,33 +1,42 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 function Comment(props) {
-  const truncate = (string) => {
-    //if string is longer than width
-      //truncate + '...'
-    //else return string
+  const showComment = (timeStamp) => {
+    if (props.currTime > timeStamp - 1 && props.currTime < timeStamp + 1)  {
+      return true;
+    }
+    return false;
   }
 
   return (
-    <CommentLineWrapper position={props.comment.timeStamp / props.duration * 100}>
-      <User>{props.comment.user}</User>
-      <Text position={props.comment.timeStamp / props.duration * 100}>{props.comment.comment}</Text>
-    </CommentLineWrapper>
+    <div>
+      {showComment(props.comment.timeStamp) && <CommentLineWrapper position={props.comment.timeStamp / props.duration * 100}>
+        <User>{props.comment.user}</User>
+        <Text position={props.comment.timeStamp / props.duration * 100}>{props.comment.comment}</Text>
+      </CommentLineWrapper>}
+    </div>
   )
 }
 
+const Visible = keyframes`
+  100% {
+    visibility: visible;
+  }
+`;
+
 const CommentLineWrapper = styled.div`
-  display: flex;
+  display: ${prop => prop.shown};
   left: ${prop => prop.position}%;
   width: ${prop => 100 - prop.position}%;
+  display: flex;
   position: absolute;
   padding-top: 30px;
   border-left: solid 1px;
   border-image: linear-gradient( to bottom, #f75913, #db5d2b82 ) 1 100%;
-
-  ${({ active }) => active && `
-  background: linear-gradient(to bottom, #db6a23, #db3f21, #dba386);
-  `}
+  visibility: hidden;
+  animation: ${Visible};
+  animation-duration: 2s;
 `;
 
 const User = styled.div`

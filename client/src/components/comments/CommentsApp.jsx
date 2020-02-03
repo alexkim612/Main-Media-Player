@@ -10,16 +10,15 @@ class CommentsApp extends React.Component {
     this.state = {
       selected: {}
     }
-
   }
 
-
+  
 
   render() {
     return(
       <CommentWrapper>
         {this.props.comments.map((comment, i) => <Avatar comment={comment} duration={this.props.duration} key={comment.id}/>)}
-        {this.props.comments.map((comment, i) => <Comment comment={comment} duration={this.props.duration} key={comment.id}/>)}
+        {this.props.comments.map((comment, i) => <Comment currTime={this.props.currTime} comment={comment} duration={this.props.duration} key={comment.id}/>)}
       </CommentWrapper>
     )
   }

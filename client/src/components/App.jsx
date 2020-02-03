@@ -131,7 +131,7 @@ class App extends React.Component {
           </TimeStampContainer>
 
           <CommentsContainer>
-            {!this.state.song.length ? <div /> : <CommentsApp duration={this.sound.duration} comments={this.state.song[0].comments}/>}
+            {!this.state.song.length ? <div /> : <CommentsApp currTime={this.state.currTime} duration={this.sound.duration} comments={this.state.song[0].comments}/>}
           </CommentsContainer>
 
           {!this.state.song.length ? <div /> : <WaveFormApp isPaused={this.state.isPaused} wfdata={this.state.waveformData} handleClickTimeUpdate={this.handleClickTimeUpdate} currTime={this.state.currTime} duration={this.sound.duration} />}

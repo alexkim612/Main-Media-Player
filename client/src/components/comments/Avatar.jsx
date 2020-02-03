@@ -12,10 +12,6 @@ const AvatarPic = styled.img`
   width: 20px;
   left: ${prop => prop.position}%;
   position: absolute;
-
-  ${({ active }) => active && `
-  background: linear-gradient(to bottom, #db6a23, #db3f21, #dba386);
-  `}
 `;
 
 export default Avatar;
