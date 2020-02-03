@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Avatar from './Avatar.jsx';
 import Comment from './Comment.jsx';
 
 class CommentsApp extends React.Component {
@@ -12,16 +13,19 @@ class CommentsApp extends React.Component {
 
   }
 
+
+
   render() {
     return(
       <CommentWrapper>
+        {this.props.comments.map((comment, i) => <Avatar comment={comment} duration={this.props.duration} key={comment.id}/>)}
         {this.props.comments.map((comment, i) => <Comment comment={comment} duration={this.props.duration} key={comment.id}/>)}
       </CommentWrapper>
     )
   }
 }
 
-//CSS 
+//CSS styled-components
 const CommentWrapper = styled.div`
   display: flex;
   flex-direction: row;
