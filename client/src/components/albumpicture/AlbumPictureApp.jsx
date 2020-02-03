@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Modal from './Modal.jsx';
+import Modal from './Modal';
 
 class AlbumPictureApp extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class AlbumPictureApp extends React.Component {
   }
 
   toggleModal() {
-    if(!this.state.isModalOpen) {
+    if (!this.state.isModalOpen) {
       this.setState({
         isModalOpen: true
       });
@@ -29,15 +29,15 @@ class AlbumPictureApp extends React.Component {
   render() {
     return (
       <div onClick={this.toggleModal}>
-        <CoverArt src={this.props.song.albumURL}/>
-          {this.state.isModalOpen ?
-              <Modal 
-                toggleModal={this.toggleModal} 
-                isModalOpen={this.state.isModalOpen} 
-                songName={this.props.song.name} 
-                picture={this.props.song.albumURL}>
-              </Modal>
-            : null}
+        <CoverArt src={this.props.song.albumURL} />
+        {this.state.isModalOpen ?
+          <Modal
+            toggleModal={this.toggleModal}
+            isModalOpen={this.state.isModalOpen}
+            songName={this.props.song.name}
+            picture={this.props.song.albumURL}>
+          </Modal>
+          : null}
       </div>
     );
   }
