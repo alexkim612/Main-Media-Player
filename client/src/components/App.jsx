@@ -7,7 +7,7 @@ import DateTagApp from './datetag/DateTagApp.jsx';
 import AlbumPicture from './albumpicture/AlbumPictureApp.jsx';
 import WaveFormApp from './waveform/WaveFormApp.jsx';
 import CommentsApp from './comments/CommentsApp.jsx';
-import mp3 from '/Users/alexanderkim/Desktop/MediaPlayer/songs/\(Club\)\ Modjo\ -\ Lady_\(Pryda_Mashup\).mp3';
+import mp3 from '../../dist/4e6f865c81aa54f9e778e35e7ac3ed73.mp3';
 
 class App extends React.Component {
   constructor(props) {
