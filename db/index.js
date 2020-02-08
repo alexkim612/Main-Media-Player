@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 
 //open database @mediaplayer
-mongoose.connect('mongodb://localhost/mediaplayer', {useNewUrlParser: true});
+mongoose.connect('mongodb://database/mediaplayer', {useNewUrlParser: true});
 
 //log if opened or not
 const db = mongoose.connection;
