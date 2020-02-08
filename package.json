@@ -8,6 +8,7 @@
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage --colors",
     "react-dev": "webpack -d --watch",
+    "build": "webpack",
     "start": "node server/index.js",
     "startNodemon": "nodemon server/index.js",
     "dummymongodata": "node ./db/seed.js",
