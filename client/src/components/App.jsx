@@ -62,7 +62,7 @@ class App extends React.Component {
   }
 
   fetchData() {
-    fetch('http://44.228.254.149/:9000/song')
+    fetch('http://44.228.254.149:9000/song')
       .then(response => {
         return response.json();
       })
