@@ -12,7 +12,7 @@
     "startNodemon": "nodemon server/index.js",
     "dummymongodata": "node ./db/seed.js",
     "seed-real-data": "node ./db/realseed.js",
-    "start-and-seed": "npm start & npm run seed-real-data"
+    "start-and-seed": "npm run seed-real-data & npm run start"
   },
   "repository": {
     "type": "git",
